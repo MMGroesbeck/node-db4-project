@@ -11,7 +11,13 @@ function getRecipes() {
 }
 
 function getInstructions(recipe_id) {
-    return db("steps")
+    return db
+        .select(
+            "step_number",
+            "step_name",
+            "step_directions"
+        )
+        .from("steps")
         .where({ recipe_id: recipe_id })
         .orderBy("steps.step_number");
 }
