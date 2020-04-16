@@ -31,6 +31,6 @@ function getShoppingList(recipe_id) {
         .from("ingredients_steps as is")
         .join("ingredients as ing", "ing.id", "is.ingredient_id")
         .join("steps as st", "st.id", "is.step_id")
-        .where({ recipe_id: id })
+        .where({ recipe_id: recipe_id })
         .orderBy("st.step_number");
 }
